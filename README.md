@@ -7,8 +7,6 @@ tags: rails, active record associations, scaffolding, beginner
 
 # Amoeba Circus on Rails
 
-
-
 ## Goal
 
 Typhus, the ringmaster needs an application that will allow him to schedule his acts for his upcoming amoeba circus. 

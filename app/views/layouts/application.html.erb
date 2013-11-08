@@ -7,8 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <nav>
+    <%= link_to 'Amoebas', amobebas_path %> | 
+    <%= link_to 'Acts', acts_path %>
+  </nav>
 
-<%= yield %>
+ <%= yield %>
 
 </body>
 </html>
