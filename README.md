@@ -3,11 +3,9 @@ language: ruby
 tags: rails, active record associations, scaffolding, beginner
 ---
 
-<img src="./amoeba-circus-medium.jpg" alt="Amoeba Circus">
+<img src="./app/assets/images/amoeba-circus-medium.jpg" alt="Amoeba Circus">
 
 # Amoeba Circus on Rails
-
-
 
 ## Goal
 
@@ -22,15 +20,18 @@ We will also need to create acts that amoebas can be added to. Acts will have a 
 1. generate a new rails app
 2. cd into app and initialize as a new git repo.
 3. add a remote matching the same name on your personal github.
-4. using rails generate commands, create the models and migrations needed for both amoebas and acts.
+4. using rails generate commands, create the models and migrations needed for amoebas, acts, and talents.
+acts and amoebas will have models, controllers, and views, whereas talent only needs a model to store the name of each special talent: acrobat, contortionist, clown, juggler, or freak;
 5. Check the migrations to make sure they are correct and make any changes neccesary.
 6. Fill in the appropriate active record associations for each model and then run the migrations.
-7. using rails generate commands, create the controller and views needed to do the following:
- - display all amoebas
- - show an individual amoeba
- - edit an individual amoeba so that it can be added to or removed from an act
+7. Fill in the /db/seeds.rb to build some acts, special talents, and amoebas.
+8. Then run rake db:seed to populate your development db.
+9. make sure to include the following RESTful views:
+ - display all amoebas (link name to show that amoeba)
+ - show an individual amoeba (include a link to split amoeba using custom routes)
+ - edit an individual amoeba so that it can be added to an act.
  - display all acts
- - show an indivdual act
+ - show an indivdual act (that displays its date and all the amoba actors asiigned to it)
  - edit an individual act
- - bonus view: a single dashboard view that shows all acts, all amoebas, and a form to move amoebas to an act.
-8. When completed copy and paste link to your github repos master branch to this post on Piazza.
+ - bonus view: a single dashboard view that shows all acts, all amoebas, and a form to move amoebas
+10. When completed copy and paste link to your github repos master branch to this post on Piazza.
