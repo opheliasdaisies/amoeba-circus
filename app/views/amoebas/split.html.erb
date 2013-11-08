@@ -1,0 +1,13 @@
+<h1>Split <%= @amoeba.name %> Into:</h1>
+<%= form_tag "/amoebas/splitter", :method => "post" do %>
+  <input type="hidden" name="original_id" value="<%= @amoeba.id %>">
+  <input type="hidden" name="generation" value="<%= @amoeba.generation %>">
+  <input type="hidden" name="talent_id" value="<%= @amoeba.talent_id %>">
+  <input type="hidden" name="act_id" value="<%= @amoeba.act_id %>">
+  <label for="amoeba_one">Amoeba One's Name</label>
+  <input type="text" id="amoeba_one" name="name1"><br>
+  <label for="amoeba_two">Amoeba Two's Name</label>
+  <input type="text" id="amoeba_two" name="name2"><br>
+  <input type="submit" value="split">
+<% end %>
+<p><%= link_to 'Cancel', amoebas_path %></p>

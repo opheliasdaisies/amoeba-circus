@@ -10,15 +10,21 @@ class AmoebasController < ApplicationController
   # GET /amoebas/1
   # GET /amoebas/1.json
   def show
+    @amoeba = Amoeba.find(params[:id])
+    @talent = Talent.find(@amoeba.talent_id)
   end
 
   # GET /amoebas/new
   def new
     @amoeba = Amoeba.new
+    @talents = Talent.all
+    @acts = Act.all
   end
 
   # GET /amoebas/1/edit
   def edit
+    @talents = Talent.all
+    @acts = Act.all
   end
 
   # POST /amoebas
@@ -58,6 +64,38 @@ class AmoebasController < ApplicationController
     respond_to do |format|
       format.html { redirect_to amoebas_url }
       format.json { head :no_content }
+    end
+  end
+
+  # GET /amoebas/1/split
+  def split
+    @amoeba = Amoeba.find(params[:id])
+  end
+
+  #POST /amoebas/splitter
+  def splitter
+
+    amoeba_one = Amoeba.new
+    amoeba_one.name = params[:name1]
+    gen = params[:generation].to_i
+    amoeba_one.generation = gen + 1
+    amoeba_one.talent_id = params[:talent_id]
+    amoeba_one.act_id = params[:act_id]
+
+    amoeba_two = Amoeba.new
+    amoeba_two.name = params[:name2]
+    gen = params[:generation].to_i
+    amoeba_two.generation = gen + 1
+    amoeba_two.talent_id = params[:talent_id]
+    amoeba_two.act_id = params[:act_id]
+
+    original_amoeba = Amoeba.find(params[:original_id])
+
+    if amoeba_one.save && amoeba_two.save && original_amoeba.destroy
+      @amoebas = Amoeba.all
+      render 'index'
+    else
+      "Error - could not split your Amoeba :("
     end
   end
 

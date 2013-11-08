@@ -11,3 +11,13 @@
  *= require_self
  *= require_tree .
  */
+
+ #amoebas {
+  width: 50%;
+  float: left;
+ }
+
+ #acts {
+  width: 50%;
+  float: right;
+ }

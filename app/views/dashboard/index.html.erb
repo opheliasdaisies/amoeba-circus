@@ -1,0 +1,13 @@
+<h1>Dashboard</h1>
+<div id="amoebas">
+  <h2>Amoebas</h2>
+  <% @amoebas.each do |amoeba| %>
+    <p><%= link_to amoeba.name, amoeba_path(amoeba) %></p>
+  <% end %>
+</div>
+<div id="acts">
+  <h2>Acts</h2>
+  <% @acts.each do |act| %>
+    <p><%= link_to act.name, act_path(act) %></p>
+  <% end %>
+</div>

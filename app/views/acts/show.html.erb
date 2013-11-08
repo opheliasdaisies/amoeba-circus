@@ -1,14 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @act.name %>
-</p>
+<h1><%= @act.name %></h1>
 
 <p>
-  <strong>Performance date:</strong>
+  <strong>Date:</strong>
   <%= @act.performance_date %>
 </p>
 
-<%= link_to 'Edit', edit_act_path(@act) %> |
+<h2>Performers</h2>
+<ul>
+  <% @act.amoebas.each do |amoeba| %>
+    <li><%= link_to amoeba.name, amoeba_path(amoeba) %></li>
+  <%end %>
+</ul>
+
+<%= link_to 'Edit', edit_act_path(@act) %> | 
+<%=link_to "Delete",act_path(@act), 'data-method' => :delete, :class => "delete", :confirm => "Are you sure ?"%> | 
 <%= link_to 'Back', acts_path %>

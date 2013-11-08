@@ -16,16 +16,20 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :talent %><br>
-    <%= f.text_field :talent %>
-  </div>
-  <div class="field">
-    <%= f.label :generation %><br>
-    <%= f.number_field :generation %>
+    <%= f.label :talent_id %><br>
+    <select name="talent_id">
+    <% @talents.each do |talent| %>
+      <option value="<%= talent.name %>" <% if @amoeba.talent_id == talent.id %>selected<% end %>><%= talent.name %></option>
+    <% end %>
+    </select>
   </div>
   <div class="field">
     <%= f.label :act_id %><br>
-    <%= f.number_field :act_id %>
+    <select name="act_id">
+    <% @acts.each do |act| %>
+      <option value="<%= act.name %>" <% if @amoeba.talent_id == act.id %>selected<% end %>><%= act.name %></option>
+    <% end %>
+    </select>
   </div>
   <div class="actions">
     <%= f.submit %>

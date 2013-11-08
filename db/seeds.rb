@@ -20,36 +20,51 @@ act5 = Act.create(
   :name => 'Lead Bellies Freak Show',
   :performance_date => DateTime.parse("29/12/2013 17:00"))
 
-# Amoebas
+# Talents: acrobat, contortionist, clown, juggler, or freak
 
-# talents: acrobat, contortionist, clown, juggler, or freak;
+talent1 = Talent.create(
+  :name => 'Acrobat')
+
+talent2 = Talent.create(
+  :name => 'Contortionist')
+
+talent3 = Talent.create(
+  :name => 'Clown')
+
+talent4 = Talent.create(
+  :name => 'Juggler')
+
+talent5 = Talent.create(
+  :name => 'Freak')
+
+# Amoebas
 
 amoeba1 = Amoeba.create(
   :name => 'Jake',
-  :talent => 'acrobat',
+  :talent_id => 1,
   :generation => 1,
   :act_id => 3)
 
 amoeba2 = Amoeba.create(
   :name => 'Jasmine',
-  :talent => 'contortionist',
+  :talent_id => 2,
   :generation => 1,
   :act_id => 2)
 
 amoeba3 = Amoeba.create(
   :name => 'Wendel',
-  :talent => 'clown',
+  :talent_id => 3,
   :generation => 1,
   :act_id => 4)
 
 amoeba4 = Amoeba.create(
   :name => 'Ducky',
-  :talent => 'juggler',
+  :talent_id => 4,
   :generation => 1,
   :act_id => 1)
 
 amoeba4 = Amoeba.create(
   :name => 'Spike',
-  :talent => 'freak',
+  :talent_id => 5,
   :generation => 1,
   :act_id => 5)

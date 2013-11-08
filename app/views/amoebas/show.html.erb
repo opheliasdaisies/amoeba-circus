@@ -1,13 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @amoeba.name %>
-</p>
+<h1><%= @amoeba.name %></h1>
 
 <p>
   <strong>Talent:</strong>
-  <%= @amoeba.talent %>
+  <%= @talent.name %>
 </p>
 
 <p>
@@ -17,8 +14,11 @@
 
 <p>
   <strong>Act:</strong>
-  <%= @amoeba.act_id %>
+  <%= link_to @amoeba.act.name, act_path(@amoeba.act) %>
 </p>
 
+<p><strong><a href="/amoebas/<%= @amoeba.id %>/split">Split</a></strong></p>
+
 <%= link_to 'Edit', edit_amoeba_path(@amoeba) %> |
+<%=link_to "Delete",amoeba_path(@amoeba), 'data-method' => :delete, :class => "delete", :confirm => "Are you sure ?"%> | 
 <%= link_to 'Back', amoebas_path %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131108195800) do
+ActiveRecord::Schema.define(version: 20131108203741) do
 
   create_table "acts", force: true do |t|
     t.string   "name"
@@ -22,9 +22,15 @@ ActiveRecord::Schema.define(version: 20131108195800) do
 
   create_table "amoebas", force: true do |t|
     t.string   "name"
-    t.string   "talent"
     t.integer  "generation"
+    t.integer  "talent_id"
     t.integer  "act_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "talents", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
