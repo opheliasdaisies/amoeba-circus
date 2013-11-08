@@ -1,20 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
+  <strong>Name:</strong>
   <%= @act.name %>
 </p>
 
 <p>
-  <b>Performance Date:</b>
+  <strong>Performance date:</strong>
   <%= @act.performance_date %>
 </p>
 
-<p>
-  <b>Act:</b>
-  <%= link_to @amoeba.act.name, amoeba_act_path %>
-</p>
-
-
-<%= link_to 'Edit', edit_employer_path(@amoeba) %> |
-<%= link_to 'Back', employers_path %>
+<%= link_to 'Edit', edit_act_path(@act) %> |
+<%= link_to 'Back', acts_path %>

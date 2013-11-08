@@ -1,72 +1,74 @@
 class AmoebasController < ApplicationController
+  before_action :set_amoeba, only: [:show, :edit, :update, :destroy]
 
+  # GET /amoebas
+  # GET /amoebas.json
   def index
     @amoebas = Amoeba.all
-
-    respond_to do |format|
-      format.html  # index.html.erb
-      format.json  { render :json => @posts }
-    end
   end
 
- def show
-    @amoeba = Amoeba.find(params[:id])
-    @act = Act.find(@amoeba)
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @amoeba }
-    end
+  # GET /amoebas/1
+  # GET /amoebas/1.json
+  def show
   end
 
+  # GET /amoebas/new
   def new
     @amoeba = Amoeba.new
-    @acts = Act.all
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @amoeba }
-    end
   end
 
+  # GET /amoebas/1/edit
   def edit
-    @amoeba = Amoeba.find(params[:id])
   end
 
+  # POST /amoebas
+  # POST /amoebas.json
   def create
-    @amoeba = Amoeba.new(params[:Amoeba])
+    @amoeba = Amoeba.new(amoeba_params)
 
     respond_to do |format|
       if @amoeba.save
         format.html { redirect_to @amoeba, notice: 'Amoeba was successfully created.' }
-        format.json { render json: @amoeba, status: :created, location: @amoeba }
+        format.json { render action: 'show', status: :created, location: @amoeba }
       else
-        format.html { render action: "new" }
+        format.html { render action: 'new' }
         format.json { render json: @amoeba.errors, status: :unprocessable_entity }
       end
     end
   end
 
+  # PATCH/PUT /amoebas/1
+  # PATCH/PUT /amoebas/1.json
   def update
-    @amoeba = Amoeba.find(params[:id])
-    @acts = Act.all
     respond_to do |format|
-      if @amoeba.update_attributes(params[:Amoeba])
+      if @amoeba.update(amoeba_params)
         format.html { redirect_to @amoeba, notice: 'Amoeba was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { render action: 'edit' }
         format.json { render json: @amoeba.errors, status: :unprocessable_entity }
       end
     end
   end
 
+  # DELETE /amoebas/1
+  # DELETE /amoebas/1.json
   def destroy
-    @amoeba = Amoeba.find(params[:id])
     @amoeba.destroy
-
     respond_to do |format|
-      format.html { redirect_to Amoebas_url }
+      format.html { redirect_to amoebas_url }
       format.json { head :no_content }
     end
   end
 
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_amoeba
+      @amoeba = Amoeba.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def amoeba_params
+      params.require(:amoeba).permit(:name, :talent, :generation, :act_id)
+    end
 end

@@ -1,37 +1,32 @@
-<%= form_for @amoeba, :html => { :multipart => true } do |f| %>
+<%= form_for(@amoeba) do |f| %>
   <% if @amoeba.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@amoeba.errors.count, "error") %> prohibited this employer from being saved:</h2>
+      <h2><%= pluralize(@amoeba.errors.count, "error") %> prohibited this amoeba from being saved:</h2>
 
       <ul>
-        <% @amoeba.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
+      <% @amoeba.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
       </ul>
     </div>
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :talent %><br />
-    <%= f.file_field :talent %>
+    <%= f.label :talent %><br>
+    <%= f.text_field :talent %>
   </div>
   <div class="field">
-    <%= f.label :generation %><br />
-    <%= f.text_field :generation %>
+    <%= f.label :generation %><br>
+    <%= f.number_field :generation %>
   </div>
   <div class="field">
-    <%= f.label :act_id %><br />
-    <select name="act_id">
-      <% @acts.each do |act| %>
-        <option value="<%= act.id %>" <% if act.id == @amoeba.act.id %>selected<%end %>><%= act.name %></select>
-      <% end %>
-    </select>
+    <%= f.label :act_id %><br>
+    <%= f.number_field :act_id %>
   </div>
- 
   <div class="actions">
     <%= f.submit %>
   </div>

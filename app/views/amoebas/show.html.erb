@@ -1,25 +1,24 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
+  <strong>Name:</strong>
   <%= @amoeba.name %>
 </p>
 
 <p>
-  <b>Talent:</b>
+  <strong>Talent:</strong>
   <%= @amoeba.talent %>
 </p>
 
 <p>
-  <b>Generation:</b>
+  <strong>Generation:</strong>
   <%= @amoeba.generation %>
 </p>
 
 <p>
-  <b>Act:</b>
-  <%= link_to @amoeba.act.name, amoeba_act_path %>
+  <strong>Act:</strong>
+  <%= @amoeba.act_id %>
 </p>
 
-
-<%= link_to 'Edit', edit_employer_path(@amoeba) %> |
-<%= link_to 'Back', employers_path %>
+<%= link_to 'Edit', edit_amoeba_path(@amoeba) %> |
+<%= link_to 'Back', amoebas_path %>

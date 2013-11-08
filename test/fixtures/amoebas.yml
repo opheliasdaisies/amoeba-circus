@@ -4,8 +4,10 @@ one:
   name: MyString
   talent: MyString
   generation: 1
+  act_id: 1
 
 two:
   name: MyString
   talent: MyString
   generation: 1
+  act_id: 1
