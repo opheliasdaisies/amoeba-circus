@@ -11,7 +11,6 @@ class AmoebasController < ApplicationController
   # GET /amoebas/1.json
   def show
     @amoeba = Amoeba.find(params[:id])
-    @talent = Talent.find(@amoeba.talent_id)
   end
 
   # GET /amoebas/new
