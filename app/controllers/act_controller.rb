@@ -11,7 +11,7 @@ class ActController < ApplicationController
   def create
     @act = Act.new(params[:act])
     if @act.save
-      redirect @act
+      redirect_to @act
     else
       render new
     end
@@ -28,7 +28,7 @@ class ActController < ApplicationController
   def update
     @act = Act.find(params[:id])
     if @act.update_attributes(params[:act])
-      redirect @act
+      redirect_to @act
     else
       render edit
     end

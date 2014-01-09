@@ -10,7 +10,7 @@ class AmoebaController < ApplicationController
   def create
     @amoeba = Amoeba.new(params[:amoeba])
     if @amoeba.save
-      redirect @amoeba
+      redirect_to @amoeba
     else
       render new
     end
@@ -27,7 +27,7 @@ class AmoebaController < ApplicationController
   def update
     @amoeba = Amoeba.find(params[:id])
     if @amoeba.update_attributes(params[:amoeba])
-      redirect @amoeba
+      redirect_to @amoeba
     else
       render edit
     end
