@@ -1,0 +1,10 @@
+%h1= @amoeba.name
+
+%ul
+  %li= "Name: #{@amoeba.name}"
+  %li= "Generation: #{@amoeba.generation}"
+  %li= "Act: #{@amoeba.act_id}"
+  %li= "Talent: #{@amoeba.talent_id}"
+
+= link_to "Amoeba List", amoebas_path
+= link_to "Edit", edit_amoeba_path(@amoeba)

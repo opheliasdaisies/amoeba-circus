@@ -1,0 +1,23 @@
+%h1 All Amoebas
+
+%table
+  %tr
+    %th Name
+    %th Generation
+    %th Talent
+    %th Act
+    %th
+    %th
+    %th
+  - @amoebas.each do |amoeba|
+    %tr
+      %td= amoeba.name
+      %td= amoeba.generation
+      %td= amoeba.talent_id
+      %td= amoeba.act_id
+      %td= link_to "Show", amoeba
+      %td= link_to "Edit", edit_amoeba_path(amoeba)
+      %td= link_to "Delete", amoeba, :method => 'delete', :data => {:confirm => "Are you sure you want to kill this amoeba?"}
+%br
+%br
+= link_to 'New Amoeba', new_amoeba_path
