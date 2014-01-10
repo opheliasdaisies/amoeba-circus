@@ -1,4 +1,4 @@
-class ActController < ApplicationController
+class ActsController < ApplicationController
 
   def index
     @acts = Act.all
