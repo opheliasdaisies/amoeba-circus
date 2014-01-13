@@ -1,0 +1,9 @@
+%h1= @act.name
+
+%ul
+  %li= "Name: #{@act.name}"
+  %li= "Date: #{@act.date}"
+  %li= "Time: #{@act.time }"
+
+= link_to "All Acts", acts_path
+= link_to "Edit Act", edit_act_path(@act)

@@ -1,0 +1,22 @@
+%h1 Acts for the Grand Show!
+
+%table
+  %tr
+    %th Name
+    %th Date
+    %th Time
+    %th
+    %th
+    %th
+
+  - @acts.each do |act|
+    %tr
+      %td= act.name
+      %td= act.date
+      %td= act.time
+      %td= link_to "Show", act
+      %td= link_to "Edit", edit_act_path(act)
+      %td= link_to "Delete", act, :method => 'delete', :data => {:confirm => "Are you sure you've performed this act for the last time?"}
+%br
+%br
+= link_to "New Act", new_act_path
